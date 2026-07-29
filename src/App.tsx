@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Agency } from "./pages/Agency";
 import { Podcast } from "./pages/Podcast";
 import { Contact } from "./pages/Contact";
+import { DevDesignPreview } from "./pages/DevDesignPreview";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/agency" element={<Agency />} />
           <Route path="/podcast" element={<Podcast />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/dev/design-preview" element={<DevDesignPreview />} />
         </Routes>
       </Layout>
     </BrowserRouter>
