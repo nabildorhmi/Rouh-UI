@@ -83,7 +83,7 @@ Locked order (CONTEXT.md D-01): **Hero → Plans → Services → Portfolio ("Se
 |------|------|--------|-------------|
 | Eyebrow/label | 12px (`text-xs`) | 700 bold, uppercase, `tracking-[0.2em]`, `text-orange` | 1.4 |
 | Body | 16px (`text-base`) | 400 regular | 1.5 |
-| Card/step title | 20–24px (`text-lg`/`text-2xl`, per existing component) | 900 black | 1.2 |
+| Card/step title | 24px (`text-2xl`) | 900 black | 1.2 |
 | Section heading (display) | 30px / 36px responsive (`text-3xl sm:text-4xl`) | 900 black | 1.2 |
 
 Secondary text: `text-black/60` (card descriptions), `text-black/80`–`/90` (on-dark body, `PlanCard` highlighted state). No `text-gray-*`, no `font-semibold`/600 anywhere. Weight count stays at the existing 3 (400/700/900) per Phase 1's documented brand-constraint exception — no 4th weight introduced.
