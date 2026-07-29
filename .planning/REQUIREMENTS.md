@@ -79,32 +79,32 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| STUD-01 | TBD | Pending |
-| STUD-02 | TBD | Pending |
-| STUD-03 | TBD | Pending |
-| STUD-04 | TBD | Pending |
-| STUD-05 | TBD | Pending |
-| STUD-06 | TBD | Pending |
-| STUD-07 | TBD | Pending |
-| COPY-01 | TBD | Pending |
-| COPY-02 | TBD | Pending |
-| TRUST-01 | TBD | Pending |
-| TRUST-02 | TBD | Pending |
-| TRUST-03 | TBD | Pending |
-| TRUST-04 | TBD | Pending |
-| TRUST-05 | TBD | Pending |
-| PORT-01 | TBD | Pending |
-| DSGN-01 | TBD | Pending |
-| DSGN-02 | TBD | Pending |
-| DSGN-03 | TBD | Pending |
-| NAV-01 | TBD | Pending |
-| NAV-02 | TBD | Pending |
+| STUD-01 | Phase 3 | Pending |
+| STUD-02 | Phase 3 | Pending |
+| STUD-03 | Phase 3 | Pending |
+| STUD-04 | Phase 3 | Pending |
+| STUD-05 | Phase 3 | Pending |
+| STUD-06 | Phase 3 | Pending |
+| STUD-07 | Phase 3 | Pending |
+| COPY-01 | Phase 4 | Pending |
+| COPY-02 | Phase 4 | Pending |
+| TRUST-01 | Phase 2 | Pending |
+| TRUST-02 | Phase 3 | Pending |
+| TRUST-03 | Phase 4 | Pending |
+| TRUST-04 | Phase 2 | Pending |
+| TRUST-05 | Phase 3 | Pending |
+| PORT-01 | Phase 2 | Pending |
+| DSGN-01 | Phase 4 | Pending |
+| DSGN-02 | Phase 4 | Pending |
+| DSGN-03 | Phase 4 | Pending |
+| NAV-01 | Phase 4 | Pending |
+| NAV-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mapped to phases: 0 (pending roadmap creation)
-- Unmapped: 20 ⚠️
+- Mapped to phases: 20 (Phase 1: 0 — infrastructure only; Phase 2: 3; Phase 3: 9; Phase 4: 8)
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-07-29*
-*Last updated: 2026-07-29 after initial definition*
+*Last updated: 2026-07-29 after roadmap creation (4-phase vertical MVP structure, 20/20 v1 requirements mapped)*
