@@ -38,7 +38,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 **Wave 1**
 
-- [ ] 01-01-PLAN.md — Install net-new dependencies (motion, tw-animate-css, clsx, tailwind-merge, class-variance-authority, lucide-react) and define Testimonial/ProcessStep types + balanced sample data fixtures
+- [x] 01-01-PLAN.md — Install net-new dependencies (motion, tw-animate-css, clsx, tailwind-merge, class-variance-authority, lucide-react) and define Testimonial/ProcessStep types + balanced sample data fixtures
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System Contract + Shared Primitives | 0/TBD | Not started | - |
+| 1. Design System Contract + Shared Primitives | 1/3 | In Progress|  |
 | 2. Agency Page — Reference Implementation | 0/TBD | Not started | - |
 | 3. Podcast Page — Studio Rental Rework + Full Integration | 0/TBD | Not started | - |
 | 4. Sitewide Copy, Terminology & Parity QA | 0/TBD | Not started | - |
