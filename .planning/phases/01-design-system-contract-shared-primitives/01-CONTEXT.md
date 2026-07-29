@@ -14,10 +14,10 @@ A documented visual/design-token contract exists and reusable, page-agnostic tru
 ## Implementation Decisions
 
 ### Visual Direction
-- **D-01:** Style direction is "minimal & precise" — tight grid, restrained color use, lets the orange/gold accents do the work; a studio/tech-adjacent feel rather than bold/editorial or warm/soft.
+- **D-01 [informational]:** Style direction is "minimal & precise" — tight grid, restrained color use, lets the orange/gold accents do the work; a studio/tech-adjacent feel rather than bold/editorial or warm/soft. Not independently task-tracked — this is the meta-principle that 01-UI-SPEC.md's token contract (spacing scale, D-02, D-03) structurally implements; no discrete Phase 1 task asserts it directly.
 - **D-02:** Keep the existing shape language (rounded-2xl cards, gradient + scale-on-hover buttons) — elevate spacing/hierarchy/shadows around it rather than tightening to sharper corners.
 - **D-03:** Orange/gold stay accent-only (CTAs, eyebrows, highlights, the existing `.bg-gradient-brand` utility) — no full-section color blocks. Backgrounds stay white/black.
-- **D-04:** Placeholder imagery (portfolio thumbnails, future studio photos) keeps the current gold/orange gradient box treatment — no added texture/pattern layer.
+- **D-04 [informational]:** Placeholder imagery (portfolio thumbnails, future studio photos) keeps the current gold/orange gradient box treatment — no added texture/pattern layer. Out of scope for Phase 1 — no plan touches `portfolio.ts` or studio photos. Applies when Phase 2 (Agency) / Phase 3 (Podcast) work on imagery.
 
 ### Motion & Micro-interactions
 - **D-05:** Motion is subtle only — fade/slide-in on scroll for sections, hover states on cards/buttons. No staggered reveals, parallax, or expressive motion; supports the "minimal & precise" direction.
