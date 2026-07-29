@@ -36,7 +36,7 @@ export const packages: RentalPackage[] = [
   {
     id: "full-day",
     name: "Full Day Production",
-    tagline: "For multi-guest recordings and longer shoots.",
+    tagline: "For multi-person recordings and longer shoots.",
     duration: "8 hours (full day)",
     staffing: "staffed",
     gearTier: "Premium",

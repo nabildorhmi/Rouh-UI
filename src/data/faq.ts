@@ -23,6 +23,6 @@ export const faqItems: FaqItem[] = [
     id: "capacity",
     question: "How many people fit in the room?",
     answer:
-      "Up to 2 for Solo Session, up to 4 for Crew Session, and up to 6 for Full Day Production — capacity includes hosts and guests.",
+      "Up to 2 for Solo Session, up to 4 for Crew Session, and up to 6 for Full Day Production — capacity includes hosts and participants.",
   },
 ];
