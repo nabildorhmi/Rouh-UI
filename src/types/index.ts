@@ -25,15 +25,6 @@ export interface Episode {
   duration: string;
 }
 
-export interface GuestTier {
-  id: string;
-  name: string;
-  price: string;
-  tagline: string;
-  features: string[];
-  highlighted?: boolean;
-}
-
 export interface RentalPackage {
   id: string;
   name: string;
