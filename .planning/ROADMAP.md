@@ -13,7 +13,7 @@ Rouh's frontend goes from a placeholder-copy, structurally-lopsided, business-mo
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Design System Contract + Shared Primitives** - Establish the visual token contract and build reusable, page-agnostic testimonials/process components before any page is touched
+- [x] **Phase 1: Design System Contract + Shared Primitives** - Establish the visual token contract and build reusable, page-agnostic testimonials/process components before any page is touched (completed 2026-07-29)
 - [ ] **Phase 2: Agency Page — Reference Implementation** - Bring the Agency page to a fully polished, complete, visitable state (portfolio, testimonials, process, real copy) as the pattern the rest of the site follows
 - [ ] **Phase 3: Podcast Page — Studio Rental Rework + Full Integration** - Correct the podcast business model (guest tiers → rental packages) and bring the Podcast page to the same complete, polished state as Agency
 - [ ] **Phase 4: Sitewide Copy, Terminology & Parity QA** - Finalize copy and design polish across every remaining page (Home, Contact, nav, footer), eliminate all stale guest-appearance language, and verify Agency/Podcast equal weight
@@ -46,7 +46,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 01-03-PLAN.md — Wire a temporary verification route proving both shared components render correctly against agency/podcast sample data with a working, reduced-motion-aware scroll-reveal interaction
+- [x] 01-03-PLAN.md — Wire a temporary verification route proving both shared components render correctly against agency/podcast sample data with a working, reduced-motion-aware scroll-reveal interaction
 
 ### Phase 2: Agency Page — Reference Implementation
 
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System Contract + Shared Primitives | 2/3 | In Progress|  |
+| 1. Design System Contract + Shared Primitives | 3/3 | Complete   | 2026-07-29 |
 | 2. Agency Page — Reference Implementation | 0/TBD | Not started | - |
 | 3. Podcast Page — Studio Rental Rework + Full Integration | 0/TBD | Not started | - |
 | 4. Sitewide Copy, Terminology & Parity QA | 0/TBD | Not started | - |
