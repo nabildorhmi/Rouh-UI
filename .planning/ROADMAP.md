@@ -29,7 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A reusable `TestimonialsSection` component renders a balanced-looking set of quote cards correctly when given either agency-tagged or podcast-tagged sample data, with no page-specific code required
   3. A reusable `ProcessSection` component renders a "how it works" step sequence correctly when given either agency or podcast sample data, with no page-specific code required
   4. The new dependencies (motion, tw-animate-css, clsx/tailwind-merge/class-variance-authority, lucide-react) are installed and at least one micro-interaction (e.g. scroll-reveal or hover state) is visibly working somewhere in the app, confirming the tooling is wired up correctly
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Install net-new dependencies (motion, tw-animate-css, clsx, tailwind-merge, class-variance-authority, lucide-react) and define Testimonial/ProcessStep types + balanced sample data fixtures
+- [ ] 01-02-PLAN.md — Build the shared TestimonialCard/TestimonialsSection and ProcessStepItem/ProcessSection components with scroll-reveal motion, per the locked 01-UI-SPEC.md token contract
+- [ ] 01-03-PLAN.md — Wire a temporary verification route proving both shared components render correctly against agency/podcast sample data with a working, reduced-motion-aware scroll-reveal interaction
 
 ### Phase 2: Agency Page — Reference Implementation
 **Goal**: A visitor can land on the Agency page and get a complete, trustworthy, premium impression of the agency service — proof of past work, a clear engagement process, real client voices, and real copy — establishing the reference pattern Podcast will follow.
