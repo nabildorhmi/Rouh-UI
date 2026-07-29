@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# GSD planning artifacts now live in the parent directory (multi-repo orchestration)
+.planning/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
