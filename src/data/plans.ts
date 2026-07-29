@@ -1,7 +1,6 @@
 import type { Plan } from "../types";
 
-// Agency plans intentionally show no pricing — the flow is "pick a plan, tell us
-// about you, book a call." Replace feature lists with final scope per plan.
+// Agency plans intentionally show no pricing — the flow is "pick a plan, tell us about you, book a call."
 export const plans: Plan[] = [
   {
     id: "starter",
@@ -9,7 +8,7 @@ export const plans: Plan[] = [
     tagline: "For brands getting their foundations in place.",
     features: [
       "Brand & social audit",
-      "Content calendar (placeholder cadence)",
+      "Content calendar & posting cadence",
       "1 core platform managed",
       "Monthly performance report",
     ],
@@ -21,7 +20,7 @@ export const plans: Plan[] = [
     features: [
       "Everything in Starter",
       "Multi-platform content production",
-      "Paid media management (placeholder budget tier)",
+      "Paid social & search media management",
       "Quarterly strategy review",
     ],
     highlighted: true,

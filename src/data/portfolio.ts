@@ -1,20 +1,22 @@
 import type { PortfolioItem } from "../types";
 
-// Placeholder case studies — swap in real client work when available.
 export const portfolio: PortfolioItem[] = [
   {
-    title: "Placeholder Client A",
+    title: "Lumen Skincare",
     category: "Brand Launch",
-    description: "Placeholder case study copy describing scope, approach, and results.",
+    description:
+      "Repositioned a DTC skincare brand ahead of a national retail launch — new identity, messaging system, and a content push that moved funnel numbers within the first month.",
   },
   {
-    title: "Placeholder Client B",
+    title: "Northfield Outdoor",
     category: "Social Growth",
-    description: "Placeholder case study copy describing scope, approach, and results.",
+    description:
+      "Rebuilt a founder-run outdoor brand's social presence from scratch — consistent posting cadence, a creative system, and a community that grew alongside the product line, on the timeline we committed to.",
   },
   {
-    title: "Placeholder Client C",
+    title: "Almora Home",
     category: "Web & Digital",
-    description: "Placeholder case study copy describing scope, approach, and results.",
+    description:
+      "Designed and shipped a new e-commerce site for a home goods brand — from information architecture to checkout — cutting page load time in half and lifting mobile conversion in the first release.",
   },
 ];

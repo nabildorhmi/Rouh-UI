@@ -1,35 +1,34 @@
 import type { Service } from "../types";
 
-// Placeholder content — replace with real ROUH Agency service copy.
 export const services: Service[] = [
   {
     title: "Brand Strategy",
     description:
-      "Placeholder copy: positioning, identity, and messaging that gives a brand a clear point of view.",
+      "Positioning, identity, and messaging that give a brand a clear point of view — and a reason to be chosen over the next name on the list.",
   },
   {
     title: "Content Production",
     description:
-      "Placeholder copy: photo, video, and social content produced for consistent, on-brand output.",
+      "Photo, video, and social content shot and edited to one visual standard, so every platform looks like it belongs to the same brand.",
   },
   {
     title: "Social Media Management",
     description:
-      "Placeholder copy: day-to-day management of channels, calendars, and community engagement.",
+      "Day-to-day ownership of your channels — calendars, captions, community replies — so posting never falls to whoever has five minutes free.",
   },
   {
     title: "Paid Media & Growth",
     description:
-      "Placeholder copy: campaign planning and media buying across paid social and search.",
+      "Campaign strategy and media buying across paid social and search, built around the metrics that actually move revenue.",
   },
   {
     title: "Web & Digital Design",
     description:
-      "Placeholder copy: websites and digital experiences designed to convert and built to last.",
+      "Websites and digital experiences designed to convert on the first visit and built to hold up as the brand grows.",
   },
   {
     title: "Influencer & Partnerships",
     description:
-      "Placeholder copy: sourcing and managing creator partnerships aligned to brand goals.",
+      "Creator sourcing and partnership management matched to brand fit, not just follower count.",
   },
 ];
