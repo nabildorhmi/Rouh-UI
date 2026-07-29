@@ -22,15 +22,15 @@
 
 ### Trust & Social Proof
 
-- [ ] **TRUST-01**: Visitor can read testimonials from Agency clients
+- [x] **TRUST-01**: Visitor can read testimonials from Agency clients
 - [ ] **TRUST-02**: Visitor can read testimonials from Podcast studio renters
 - [ ] **TRUST-03**: The testimonials section shows a balanced number of quotes for each service line, not skewed toward one
-- [ ] **TRUST-04**: Visitor can view a "how it works" process section explaining the steps for engaging the Agency
+- [x] **TRUST-04**: Visitor can view a "how it works" process section explaining the steps for engaging the Agency
 - [ ] **TRUST-05**: Visitor can view a "how it works" process section explaining the steps for booking the Podcast studio
 
 ### Agency Portfolio
 
-- [ ] **PORT-01**: Visitor can view a portfolio/case-study showcase of past Agency work on the Agency page
+- [x] **PORT-01**: Visitor can view a portfolio/case-study showcase of past Agency work on the Agency page
 
 ### Visual Design & UX
 
@@ -88,12 +88,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | STUD-07 | Phase 3 | Pending |
 | COPY-01 | Phase 4 | Pending |
 | COPY-02 | Phase 4 | Pending |
-| TRUST-01 | Phase 2 | Pending |
+| TRUST-01 | Phase 2 | Complete |
 | TRUST-02 | Phase 3 | Pending |
 | TRUST-03 | Phase 4 | Pending |
-| TRUST-04 | Phase 2 | Pending |
+| TRUST-04 | Phase 2 | Complete |
 | TRUST-05 | Phase 3 | Pending |
-| PORT-01 | Phase 2 | Pending |
+| PORT-01 | Phase 2 | Complete |
 | DSGN-01 | Phase 4 | Pending |
 | DSGN-02 | Phase 4 | Pending |
 | DSGN-03 | Phase 4 | Pending |

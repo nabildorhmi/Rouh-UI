@@ -17,15 +17,16 @@ A visitor immediately understands Rouh does two distinct things well — brand/m
 - ✓ Podcast page with episode list and tier cards, reservation modal + form (mode-aware: agency/podcast) — existing
 - ✓ Brand system: Gotham font family, orange (#c1622e) / gold (#d9a253) theme, 4 custom graphic elements, Tailwind CSS v4 — existing
 - ✓ Reservation flow UI: form → confirmation step → Calendly link handoff — existing (submission itself is stubbed, no backend)
+- ✓ Agency page reference implementation: final brand-voice copy (services/plans/portfolio), portfolio/case-study showcase, testimonials, "how it works" process section, no placeholder content — Validated in Phase 2 (PORT-01, TRUST-01, TRUST-04)
 
 ### Active
 
 - [ ] Re-model the Podcast page's "guest tiers" as studio rental packages (client rents space + cameras/gear to produce their own podcast with their own guest) — replaces the current "pay to be featured on Rouh's show" framing
-- [ ] Elevate visual design across all pages to feel premium and polished (better spacing, hierarchy, imagery treatment, micro-interactions) while keeping existing fonts, colors, and graphic elements unchanged
+- [ ] Elevate visual design across all pages to feel premium and polished (better spacing, hierarchy, imagery treatment, micro-interactions) while keeping existing fonts, colors, and graphic elements unchanged — done for Agency (Phase 2); Podcast, Home, Contact remain
 - [ ] Give Agency and Podcast equal visual and structural weight — neither page/service reads as secondary to the other
-- [ ] Write final marketing copy (brand voice) replacing all "Placeholder copy" content — services, plans, studio packages, section copy
-- [ ] Add a testimonials / social proof section (covers both agency clients and podcast studio renters)
-- [ ] Add a "how it works" / process section (what booking and working with Rouh actually looks like, for both services)
+- [ ] Write final marketing copy (brand voice) replacing all "Placeholder copy" content — Agency services/plans/portfolio done (Phase 2); Podcast studio packages and remaining section copy outstanding
+- [ ] Add a testimonials / social proof section (covers both agency clients and podcast studio renters) — Agency side done (Phase 2); Podcast side outstanding (TRUST-02, TRUST-03)
+- [ ] Add a "how it works" / process section (what booking and working with Rouh actually looks like, for both services) — Agency side done (Phase 2); Podcast side outstanding (TRUST-05)
 - [ ] Improve overall UX — clear navigation, obvious CTAs, mobile-friendly, easy path to booking for both services
 
 ### Out of Scope
@@ -78,4 +79,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-29 after initialization*
+*Last updated: 2026-07-29 after Phase 2 completion*
