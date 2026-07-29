@@ -3,10 +3,10 @@
 > **Audit trail only.** Do not use as input to planning, research, or execution agents.
 > Decisions are captured in CONTEXT.md — this log preserves the alternatives considered.
 
-**Date:** 2026-07-29
+**Date:** 2026-07-29 (auto-drafted, then reviewed interactively same day)
 **Phase:** 03-podcast-page-studio-rental-rework-full-integration
-**Mode:** auto (`--auto` — all decisions auto-selected, no interactive prompts)
-**Areas discussed:** Rental package structure, No-price data model, Component reuse, Studio logistics, FAQ section, Photo gallery, Guest-language removal, Testimonials/Process composition, Page section order
+**Mode:** auto draft → interactive follow-up review
+**Areas discussed:** Rental package structure, No-price data model, Component reuse, Studio logistics, FAQ section, Photo gallery, Guest-language removal, Testimonials/Process composition, Page section order, Episodes removal (new), Agency page order (new)
 
 ---
 
@@ -77,10 +77,36 @@
 
 ---
 
-## Page section order
+## Page section order (original auto-draft, superseded below)
 
 **Selected:** Hero → Packages → Episodes → Studio Gallery → Logistics & FAQ → Testimonials → Process → ReservationModal.
 **Notes:** Packages placed second (not buried) to mirror Agency's Hero→Plans CTA-prominence rationale from Phase 2 D-01.
+
+---
+
+## Interactive review session (2026-07-29)
+
+User selected "Rental package structure" to discuss from the presented gray-area list.
+
+### Rental package structure — confirmed
+Three follow-up questions asked one at a time:
+1. Keep 3-package structure (Solo/Crew/Full Day) vs. 2 packages vs. different dimensions → **Keep 3 packages**
+2. Keep names/durations (4hr/4hr/8hr) as drafted vs. change → **Keep as drafted**
+3. Keep gear tiers/capacity numbers as drafted vs. adjust vs. mark placeholder → **Keep as drafted**
+
+**Outcome:** All three sub-decisions confirmed as originally auto-drafted. This resolves the STATE.md blocker — the structure is now a user-confirmed decision, not an unverified guess. See CONTEXT.md D-01.
+
+### Scope change raised by user mid-wrapup
+When asked "ready to write CONTEXT.md, or more to discuss?", user introduced two unplanned changes:
+> "before writing context.md just for podcast page remove episode list etc and i want package list to show up first in page both in podcast area and agency area"
+
+**Follow-up 1 — Episodes removal:** Original phase boundary explicitly kept Episodes as separate, untouched content. Asked to confirm: delete entirely vs. keep-but-reorder. **User: remove Episodes entirely.** See CONTEXT.md D-10.
+
+**Follow-up 2 — Package position:** Asked whether "first" meant above Hero or right after Hero. **User: right after a small intro, everything else below.** See CONTEXT.md D-09.
+
+**Follow-up 3 — Agency reorder scope flag:** Applying this to Agency.tsx touches a Phase 2 deliverable outside Phase 3's roadmap requirements (STUD-*/TRUST-02/TRUST-05 only). Asked whether to do it now in Phase 3 or defer to Phase 4 (which already owns cross-page parity work). **User: do it now in Phase 3.**
+
+**Investigation finding:** Reading `Agency.tsx` showed it already has Hero → Plans → Services → Portfolio → Testimonials → Process — Plans is already the 2nd section. Asked user to confirm current Hero length ("title + one paragraph") counts as "small intro." **User: current length is fine.** Net result: **no code changes needed to Agency.tsx** — the decision to "do it now in Phase 3" ended up being a no-op once verified against the actual code. See CONTEXT.md D-11.
 
 ---
 

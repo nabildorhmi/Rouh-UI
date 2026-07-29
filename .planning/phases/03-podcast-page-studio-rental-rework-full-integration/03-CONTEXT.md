@@ -1,12 +1,14 @@
 # Phase 3: Podcast Page — Studio Rental Rework + Full Integration - Context
 
-**Gathered:** 2026-07-29 (auto mode — all decisions auto-selected, no interactive prompts)
+**Gathered:** 2026-07-29 (auto-drafted, then reviewed and revised interactively)
 **Status:** Ready for planning
 
 <domain>
 ## Phase Boundary
 
-A visitor can land on the Podcast page and correctly understand it as "rent our studio + gear to record your own podcast" (not "pay to appear as a guest on Rouh's show"), see everything needed to trust and book a session, and experience the same completeness and polish as the Agency page (Phase 2's reference implementation). Covers: rental package data/copy rework, studio logistics, FAQ, photo gallery, testimonials/process integration, and full removal of guest-appearance language from the Podcast page and its reservation flow. Episode listing (the actual ROUH podcast show) stays — it is separate content, not part of the guest-tier rework.
+A visitor can land on the Podcast page and correctly understand it as "rent our studio + gear to record your own podcast" (not "pay to appear as a guest on Rouh's show"), see everything needed to trust and book a session, and experience the same completeness and polish as the Agency page (Phase 2's reference implementation). Covers: rental package data/copy rework, studio logistics, FAQ, photo gallery, testimonials/process integration, and full removal of guest-appearance language from the Podcast page and its reservation flow.
+
+**Revised during discussion:** The Episodes list (the actual ROUH podcast show) is **removed entirely** from the Podcast page — the page becomes 100% about studio rental, with no show-episode content. This supersedes the original draft's assumption that Episodes would stay as separate, unrelated content.
 
 </domain>
 
@@ -18,8 +20,7 @@ A visitor can land on the Podcast page and correctly understand it as "rent our 
   - **"Solo Session"** — half-day (4hr), dry-hire (self-serve, no crew), core gear tier (2 mics, 1 camera, basic lighting kit), capacity 1–2 people
   - **"Crew Session"** (highlighted/most-popular, mirrors Agency's "Growth") — half-day (4hr), staffed (a Rouh crew member runs the gear), expanded gear tier (3 mics, 2 cameras, full lighting), capacity up to 4 people
   - **"Full Day Production"** — full day (8hr), staffed, premium gear tier (4+ mics, multi-cam, full lighting + backdrop), capacity up to 6 people
-  - `[auto] Package structure — Q: "how many packages, what dimensions?" → Selected: 3 packages, duration × staffing × gear-tier dimensions (recommended default, mirrors Agency's proven 3-tier pattern)`
-  - **⚠ Flagged for human review:** STATE.md blockers explicitly noted this needs stakeholder input, not further inference. This structure is a reasonable, concrete starting point but should be confirmed with the actual studio operator before Phase 3 executes, since it affects real-world capacity/staffing commitments.
+  - **Confirmed interactively** (2026-07-29): package count, names, durations, gear tiers, and capacity numbers below were reviewed one-by-one with the user and kept exactly as drafted. This resolves the earlier STATE.md blocker flagging this structure as needing stakeholder input — it is now a locked decision, not a placeholder guess.
 
 ### No price shown (STUD-03)
 - **D-02:** Remove the `price` field entirely — replace `GuestTier` interface with a new `RentalPackage` interface: `{ id, name, tagline, duration: string, staffing: "dry-hire" | "staffed", gearTier: string, capacity: number, equipment: string[], features: string[], highlighted?: boolean }`. Matches Agency's no-price `Plan` pattern (D-02 from Phase 2 CONTEXT).
@@ -44,7 +45,13 @@ A visitor can land on the Podcast page and correctly understand it as "rent our 
 - **D-08:** Reuse the shared `TestimonialsSection` filtered by `category === "podcast" || category === "both"` (data already exists in `testimonials.ts` — Priya Ramesh, David Okafor) and `ProcessSection` with `processSteps.podcast` (data already exists in `process.ts` — 4 steps, "Pick a package" → "Walk away with your files"). Same composition pattern Agency.tsx used in Phase 2 — no new data needed, just wiring.
 
 ### Page section order
-- **D-09:** Hero → Packages (CTA prominent early, mirrors Agency's Hero→Plans ordering) → Episodes (existing show content, unchanged) → Studio Gallery → Logistics & FAQ → Testimonials → Process → ReservationModal. Packages placed second (not last) so the primary booking CTA isn't buried, matching the Agency reference pattern's rationale.
+- **D-09:** Hero (short intro — title + one descriptive paragraph, unchanged length) → Packages → Studio Gallery → Logistics & FAQ → Testimonials → Process → ReservationModal. No Episodes section (removed — see D-10). Packages placed immediately after Hero (not last) so the primary booking CTA isn't buried, matching the Agency reference pattern's rationale.
+
+### Episodes section removal
+- **D-10:** Remove the Episodes section entirely from `Podcast.tsx` — delete the `episodes` import/map and the `EpisodeCard` usage. The Podcast page becomes 100% about studio rental; the ROUH podcast show's episode list is no longer displayed here. `src/data/episodes.ts` and `EpisodeCard.tsx` can be deleted if confirmed unused elsewhere, or left in place — Claude's discretion during planning/execution (verify no other page imports them first).
+
+### Agency page — order verified, no change needed
+- **D-11:** User requested packages/plans appear right after a short intro on **both** Podcast and Agency pages, and confirmed this should happen within Phase 3 even though Agency.tsx is a Phase 2 deliverable outside this phase's roadmap requirements. **Code inspection confirms `Agency.tsx` already satisfies this** — current order is Hero → Plans → Services → Portfolio → Testimonials → Process, i.e. Plans is already the 2nd section. User confirmed the existing Hero length ("title + one paragraph") already counts as "small intro." **No code changes to Agency.tsx are required for this decision** — only the Podcast page's order (D-09) and Episodes removal (D-10) are net-new work.
 
 ### Claude's Discretion
 - FAQ accordion vs. static list UI pattern
@@ -57,7 +64,8 @@ A visitor can land on the Podcast page and correctly understand it as "rent our 
 <specifics>
 ## Specific Ideas
 
-No specific product references from this auto-mode discussion. Structural specifics carried forward from Phase 2's established pattern (see canonical refs below) — Phase 3 should read as "the same page, different service," not a redesign.
+- "Just a small intro then packages, everything else below" — user's own framing for page structure, applies to both Podcast and Agency (Agency already matches; Podcast needs Episodes removed and Packages moved to directly follow Hero).
+- Structural specifics otherwise carried forward from Phase 2's established pattern (see canonical refs below) — Phase 3 should read as "the same page, different service," not a redesign.
 
 </specifics>
 
@@ -100,7 +108,9 @@ No external specs/ADRs exist for this project — requirements are fully capture
 - `src/types/index.ts` — `GuestTier` interface needs replacing with `RentalPackage`; `Testimonial` and `ProcessStep` types already support podcast category, no changes needed there
 - `src/data/guestTiers.ts` → rework into `src/data/packages.ts` (or rename in place) with new `RentalPackage[]` shape
 - `src/components/podcast/GuestTierCard.tsx` → `PackageCard.tsx`
-- `src/pages/Podcast.tsx` — reorder sections, add Gallery/Logistics/FAQ, compose Testimonials/Process, rewrite all copy
+- `src/pages/Podcast.tsx` — reorder sections per D-09, remove Episodes section per D-10, add Gallery/Logistics/FAQ, compose Testimonials/Process, rewrite all copy
+- `src/data/episodes.ts`, `src/components/podcast/EpisodeCard.tsx` — check for other usages before deleting; if unused elsewhere, remove as part of D-10
+- `src/pages/Agency.tsx` — verified during discussion, **no changes needed** (already Hero → Plans → rest, per D-11)
 
 </code_context>
 
