@@ -14,7 +14,7 @@ Rouh's frontend goes from a placeholder-copy, structurally-lopsided, business-mo
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Design System Contract + Shared Primitives** - Establish the visual token contract and build reusable, page-agnostic testimonials/process components before any page is touched (completed 2026-07-29)
-- [ ] **Phase 2: Agency Page — Reference Implementation** - Bring the Agency page to a fully polished, complete, visitable state (portfolio, testimonials, process, real copy) as the pattern the rest of the site follows
+- [x] **Phase 2: Agency Page — Reference Implementation** - Bring the Agency page to a fully polished, complete, visitable state (portfolio, testimonials, process, real copy) as the pattern the rest of the site follows (completed 2026-07-29)
 - [ ] **Phase 3: Podcast Page — Studio Rental Rework + Full Integration** - Correct the podcast business model (guest tiers → rental packages) and bring the Podcast page to the same complete, polished state as Agency
 - [ ] **Phase 4: Sitewide Copy, Terminology & Parity QA** - Finalize copy and design polish across every remaining page (Home, Contact, nav, footer), eliminate all stale guest-appearance language, and verify Agency/Podcast equal weight
 
@@ -66,8 +66,8 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — Rewrite services.ts/plans.ts/portfolio.ts with final brand-voice copy (D-02, D-03, D-07), removing all placeholder strings
-- [ ] 02-02-PLAN.md — Remove PortfolioShowcase's "Placeholder image" label (D-04) and reorder Agency.tsx to Hero→Plans→Services→Portfolio→Testimonials→Process (D-01), wiring in TestimonialsSection/ProcessSection
+- [x] 02-01-PLAN.md — Rewrite services.ts/plans.ts/portfolio.ts with final brand-voice copy (D-02, D-03, D-07), removing all placeholder strings
+- [x] 02-02-PLAN.md — Remove PortfolioShowcase's "Placeholder image" label (D-04) and reorder Agency.tsx to Hero→Plans→Services→Portfolio→Testimonials→Process (D-01), wiring in TestimonialsSection/ProcessSection
 
 ### Phase 3: Podcast Page — Studio Rental Rework + Full Integration
 
@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design System Contract + Shared Primitives | 3/3 | Complete   | 2026-07-29 |
-| 2. Agency Page — Reference Implementation | 0/TBD | Not started | - |
+| 2. Agency Page — Reference Implementation | 2/2 | Complete   | 2026-07-29 |
 | 3. Podcast Page — Studio Rental Rework + Full Integration | 0/TBD | Not started | - |
 | 4. Sitewide Copy, Terminology & Parity QA | 0/TBD | Not started | - |
