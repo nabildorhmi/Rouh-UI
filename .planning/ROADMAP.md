@@ -61,8 +61,13 @@ Plans:
   3. Visitor can view a "how it works" process section explaining the concrete steps of engaging the Agency, rendered via the shared `ProcessSection`
   4. Visitor experiences the Agency page as elevated and polished per the Phase 1 design contract, can use it fully on mobile without layout breakage, and sees an obvious CTA to book a call
 
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 2 plans
+
+Plans:
+**Wave 1**
+
+- [ ] 02-01-PLAN.md — Rewrite services.ts/plans.ts/portfolio.ts with final brand-voice copy (D-02, D-03, D-07), removing all placeholder strings
+- [ ] 02-02-PLAN.md — Remove PortfolioShowcase's "Placeholder image" label (D-04) and reorder Agency.tsx to Hero→Plans→Services→Portfolio→Testimonials→Process (D-01), wiring in TestimonialsSection/ProcessSection
 
 ### Phase 3: Podcast Page — Studio Rental Rework + Full Integration
 
