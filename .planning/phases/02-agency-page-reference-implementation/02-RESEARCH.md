@@ -406,17 +406,19 @@ Or, if a category tag inside the box is preferred (still satisfies D-04's "just 
 
 **If this table is empty:** N/A — see entries above. Both assumptions are low-risk defensive/consistency recommendations, not claims about external facts, libraries, or compliance requirements — no user confirmation is required before planning proceeds.
 
-## Open Questions
+## Open Questions (RESOLVED — see inline markers)
 
 1. **Does Phase 2 need to trim or leave `DevDesignPreview.tsx` untouched?**
    - What we know: Phase 1's own summary says the scaffold "should be removed once Phase 2/3 wire these sections into the real Agency/Podcast pages" (implying after *both* phases). CONTEXT.md's canonical refs and decisions say nothing about this route.
    - What's unclear: Whether "Phase 2/3" means "after either" or "after both."
    - Recommendation: Leave it untouched in Phase 2 (safest, avoids removing Phase 3's remaining reference for podcast-category rendering); flag for Phase 3 or Phase 4 planning to make the final call.
+   - **RESOLVED:** `DevDesignPreview.tsx` is left untouched by both 02-01-PLAN.md and 02-02-PLAN.md — no plan in this phase modifies or removes it.
 
 2. **Exact number/content of portfolio case studies beyond the 3 required — any expansion?**
    - What we know: CONTEXT.md D-03 locks a 3-item grid; no discretion note suggests expanding beyond 3.
    - What's unclear: Nothing really — this is settled by D-03. Included here only to explicitly confirm: do not expand to 4+ items, since the `sm:grid-cols-3` layout is locked as-is.
    - Recommendation: Keep exactly 3 portfolio items.
+   - **RESOLVED:** 02-01-PLAN.md's Task 2 rewrites `portfolio.ts` to exactly 3 entries (Lumen Skincare, Northfield Outdoor, Almora Home) with an explicit acceptance criterion (`grep -c "title:" src/data/portfolio.ts` returns 3) preventing expansion beyond 3.
 
 ## Environment Availability
 

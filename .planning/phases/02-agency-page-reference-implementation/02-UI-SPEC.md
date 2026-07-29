@@ -125,9 +125,12 @@ This phase's primary deliverable **is** copy (CONTEXT.md D-02). The table and co
 | Error state | Not applicable — no data fetching on this page, all content is build-time static |
 | Destructive confirmation | Not applicable — no destructive actions on the Agency page |
 
-### Hero (unchanged structure, copy already final)
+### Hero (title unchanged; description corrected — RESOLVED via checker feedback, was previously mischaracterized as fully final)
 
-No changes required — the existing hero copy ("A creative agency for brands that want to move with intent.") is not flagged as placeholder in CONTEXT.md and is out of this phase's copy-rewrite scope (D-02 lists `services.ts`, `plans.ts`, `portfolio.ts` specifically). Leave as-is.
+**Correction:** an earlier pass verified only the Hero's `title` prop against CONTEXT.md's placeholder list and concluded the whole Hero was "copy already final." That was inaccurate — the Hero's `description` prop still contains the literal placeholder string `"Placeholder intro copy about the agency's approach, philosophy, and who it works best with."` in `src/pages/Agency.tsx`. Because this is the first content a visitor reads on the page, D-02's "no placeholder copy on the Agency page" requirement applies to it directly, even though `Agency.tsx`'s Hero section is not one of the three files (`services.ts`/`plans.ts`/`portfolio.ts`) D-02 explicitly names as in-scope data files — the Hero is still part of "everything it touches on the Agency page."
+
+- `eyebrow` ("ROUH Agency") and `title` ("A creative agency for brands that want to move with intent.") — unchanged, final, no rewrite needed.
+- `description` — final copy (replaces the placeholder string above): "We work best with brands that already have some momentum and want a partner to sharpen it — clear positioning, consistent execution, and a team that treats deadlines like commitments, not suggestions."
 
 ### Plans section (`plans.ts` — D-07 final copy, remove all `(placeholder ...)` annotations)
 
