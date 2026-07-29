@@ -34,6 +34,19 @@ export interface GuestTier {
   highlighted?: boolean;
 }
 
+export interface RentalPackage {
+  id: string;
+  name: string;
+  tagline: string;
+  duration: string;
+  staffing: "dry-hire" | "staffed";
+  gearTier: string;
+  capacity: number;
+  equipment: string[];
+  features: string[];
+  highlighted?: boolean;
+}
+
 export type ReservationMode = "agency" | "podcast";
 
 export interface ReservationFormData {
@@ -59,3 +72,15 @@ export interface ProcessStep {
   title: string;
   description: string;
 }
+
+export interface GalleryItem {
+  id: string;
+  label: string;
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
