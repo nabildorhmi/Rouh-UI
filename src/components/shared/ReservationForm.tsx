@@ -22,14 +22,14 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
     formState: { errors },
   } = useForm<ReservationFormData>();
 
-  const tierFieldLabel = mode === "agency" ? "Selected plan" : "Selected slot";
+  const tierFieldLabel = mode === "agency" ? "Selected plan" : "Selected package";
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
       className="flex flex-col gap-4"
-      aria-label={mode === "agency" ? "Agency reservation form" : "Podcast guest reservation form"}
+      aria-label={mode === "agency" ? "Agency reservation form" : "Podcast studio reservation form"}
     >
       <div>
         <span className={labelClass}>{tierFieldLabel}</span>
@@ -106,16 +106,16 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
         <>
           <div>
             <label htmlFor="topic" className={labelClass}>
-              Topic / bio
+              About your session
             </label>
             <textarea
               id="topic"
               rows={3}
               className={inputClass}
-              placeholder="What would you talk about, and a short bio."
+              placeholder="Podcast name, episode topic, or a short description of what you're recording."
               aria-invalid={!!errors.topic}
               aria-describedby={errors.topic ? "topic-error" : undefined}
-              {...register("topic", { required: "Please share a topic and short bio." })}
+              {...register("topic", { required: "Please tell us a bit about your session." })}
             />
             {errors.topic && (
               <p id="topic-error" className={errorClass}>
