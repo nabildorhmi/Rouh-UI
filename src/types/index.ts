@@ -45,3 +45,17 @@ export interface ReservationFormData {
   preferredDates?: string;
   message?: string;
 }
+
+export interface Testimonial {
+  id: string;
+  category: "agency" | "podcast" | "both";
+  quote: string;
+  name: string;
+  role: string;
+}
+
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
