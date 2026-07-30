@@ -37,32 +37,28 @@ export function Podcast() {
 
   return (
     <>
-      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-10 sm:pt-14 pb-6">
         <GraphicAccent
           variant={4}
-          className="absolute top-6 right-[4%] sm:right-[8%] w-44 h-44 sm:w-[210px] sm:h-[210px] opacity-45 pointer-events-none"
+          className="absolute top-2 right-[4%] sm:right-[8%] w-24 h-24 sm:w-32 sm:h-32 opacity-40 pointer-events-none"
         />
-        <div className="relative z-10">
-          <SectionHeading
-            eyebrow="ROUH Studio"
-            title="Rent our studio and gear to record your own podcast."
-            description="Book the room, the mics, and as much crew support as you need — dry-hire it and run your own session, or let a Rouh crew member handle the gear while you focus on the conversation."
-          />
+        <div className="relative z-10 max-w-2xl">
+          <span className="eyebrow text-orange">ROUH Studio</span>
+          <h1 className="mt-2 text-2xl sm:text-3xl font-black text-black">
+            Rent the studio and gear — pick a package, tell us about your session, book a time.
+          </h1>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
-        <SectionHeading
-          eyebrow="Packages"
-          title="Pick a package, tell us about your session, book a time."
-          description="No prices shown — every booking starts with a short conversation so the setup actually fits your session."
-        />
-
-        <div className="mt-10 grid gap-8 sm:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20">
+        <div className="mt-6 grid gap-8 sm:grid-cols-3">
           {packages.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} onSelect={setSelectedPackage} />
           ))}
         </div>
+        <p className="mt-6 text-sm text-black/40">
+          No prices shown — every booking starts with a short conversation so the setup actually fits your session.
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-20">

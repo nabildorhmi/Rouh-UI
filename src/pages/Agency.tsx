@@ -7,7 +7,6 @@ import { processSteps } from "../data/process";
 import { CALENDLY_LINKS } from "../data/config";
 import type { Plan } from "../types";
 import { GraphicAccent } from "../components/ui/GraphicAccent";
-import { SectionHeading } from "../components/ui/SectionHeading";
 import { ServicesGrid } from "../components/agency/ServicesGrid";
 import { PortfolioShowcase } from "../components/agency/PortfolioShowcase";
 import { PlanCard } from "../components/agency/PlanCard";
@@ -24,33 +23,28 @@ export function Agency() {
 
   return (
     <>
-      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-10 sm:pt-14 pb-6">
         <GraphicAccent
           variant={1}
-          className="absolute top-6 right-[4%] sm:right-[8%] w-40 h-40 sm:w-[200px] sm:h-[200px] opacity-45 pointer-events-none"
+          className="absolute top-2 right-[4%] sm:right-[8%] w-24 h-24 sm:w-32 sm:h-32 opacity-40 pointer-events-none"
         />
-
-        <div className="relative z-10">
-          <SectionHeading
-            eyebrow="ROUH Agency"
-            title="A creative agency for brands that want to move with intent."
-            description="We work best with brands that already have some momentum and want a partner to sharpen it — clear positioning, consistent execution, and a team that treats deadlines like commitments, not suggestions."
-          />
+        <div className="relative z-10 max-w-2xl">
+          <span className="eyebrow text-orange">ROUH Agency</span>
+          <h1 className="mt-2 text-2xl sm:text-3xl font-black text-black">
+            Brands built with intent — pick a plan, tell us about you, book a call.
+          </h1>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
-        <SectionHeading
-          eyebrow="Plans"
-          title="Pick a plan, tell us about you, book a call."
-          description="No prices here — every engagement starts with a short conversation so the scope actually fits."
-        />
-
-        <div className="mt-10 grid gap-8 sm:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20">
+        <div className="mt-6 grid gap-8 sm:grid-cols-3">
           {plans.map((plan) => (
             <PlanCard key={plan.id} plan={plan} onSelect={setSelectedPlan} />
           ))}
         </div>
+        <p className="mt-6 text-sm text-black/40">
+          No prices here — every engagement starts with a short conversation so the scope actually fits.
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-20">
