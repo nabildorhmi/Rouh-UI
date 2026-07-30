@@ -6,7 +6,7 @@ export function AboutSection() {
     <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 text-center overflow-hidden">
       <GraphicAccent
         variant={2}
-        className="absolute top-2 left-[6%] w-36 h-36 sm:w-[180px] sm:h-[180px] opacity-50 text-orange"
+        className="absolute top-2 left-[6%] w-36 h-36 sm:w-[180px] sm:h-[180px] opacity-50"
       />
 
       <div className="mx-auto max-w-[720px]">

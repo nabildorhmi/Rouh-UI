@@ -15,7 +15,7 @@ export function PodcastTeaser() {
     <section className="relative overflow-hidden bg-charcoal text-white py-16 sm:py-20">
       <GraphicAccent
         variant={4}
-        className="absolute -bottom-10 right-4 sm:right-[4%] w-60 h-60 sm:w-72 sm:h-72 opacity-50 text-gold pointer-events-none"
+        className="absolute -bottom-10 right-4 sm:right-[4%] w-60 h-60 sm:w-72 sm:h-72 opacity-50 pointer-events-none"
       />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <span className="eyebrow text-gold">ROUH Studio</span>
