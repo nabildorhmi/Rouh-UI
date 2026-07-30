@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Button, LinkButton } from "../components/ui/Button";
 import { CALENDLY_LINKS } from "../data/config";
+import { postJson, ApiValidationError, ApiRequestError } from "../lib/apiClient";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -10,6 +12,7 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  company_website?: string;
 }
 
 const inputClass =
@@ -19,16 +22,44 @@ const errorClass = "text-xs text-orange mt-1";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<ContactFormData>();
 
-  const onSubmit = (data: ContactFormData) => {
-    // TODO: replace with real submission (email service / backend API).
-    console.info("Contact form submitted (placeholder handler):", data);
-    setSent(true);
+  const onSubmit = async (data: ContactFormData) => {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      await postJson("/contact", data);
+      setSent(true);
+    } catch (err) {
+      if (err instanceof ApiValidationError) {
+        Object.entries(err.errors).forEach(([field, messages]) => {
+          if (messages && messages.length > 0) {
+            setError(field as keyof ContactFormData, {
+              type: "server",
+              message: messages[0],
+            });
+          }
+        });
+      } else if (err instanceof ApiRequestError && err.status === 429) {
+        setSubmitError(
+          "You've submitted this a few times already. Please wait a minute and try again."
+        );
+      } else {
+        setSubmitError(
+          "Something went wrong sending your message. Please check your connection and try again."
+        );
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -72,6 +103,15 @@ export function Contact() {
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="mt-10 flex flex-col gap-4">
+          <div className="absolute -left-[9999px]" aria-hidden="true">
+            <input
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              {...register("company_website")}
+            />
+          </div>
+
           <div>
             <label htmlFor="name" className={labelClass}>
               Name
@@ -132,8 +172,21 @@ export function Contact() {
             )}
           </div>
 
-          <Button type="submit" className="mt-2 w-full sm:w-auto">
-            Send message
+          {submitError && (
+            <div className="rounded-lg border border-orange/20 bg-orange/5 p-4 text-xs text-orange">
+              {submitError}
+            </div>
+          )}
+
+          <Button type="submit" disabled={submitting} className="mt-2 w-full sm:w-auto">
+            {submitting ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                Sending...
+              </>
+            ) : (
+              "Send message"
+            )}
           </Button>
         </form>
       )}
