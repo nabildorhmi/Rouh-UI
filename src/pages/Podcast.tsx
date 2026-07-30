@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { packages } from "../data/packages";
 import { gallery } from "../data/gallery";
 import { faqItems } from "../data/faq";
@@ -17,6 +18,18 @@ import { CrossSellBanner } from "../components/shared/CrossSellBanner";
 
 export function Podcast() {
   const [selectedPackage, setSelectedPackage] = useState<RentalPackage | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const autoOpenPackageId = (location.state as { autoOpenPackageId?: string } | null)?.autoOpenPackageId;
+    if (autoOpenPackageId) {
+      const pkg = packages.find((p) => p.id === autoOpenPackageId);
+      if (pkg) {
+        setSelectedPackage(pkg);
+      }
+    }
+  }, [location.state]);
+
   const podcastTestimonials = testimonials.filter(
     (t) => t.category === "podcast" || t.category === "both"
   );
@@ -114,4 +127,3 @@ export function Podcast() {
     </>
   );
 }
-
