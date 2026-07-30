@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { packages } from "../data/packages";
 import { gallery } from "../data/gallery";
 import { faqItems } from "../data/faq";
@@ -86,6 +87,12 @@ export function Podcast() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6 border-t border-black/5 text-center">
+        <Link to="/agency" className="inline-flex items-center gap-2 font-bold text-orange hover:gap-3 transition-all">
+          Also need a creative agency? See how it works →
+        </Link>
+      </div>
 
       <TestimonialsSection
         testimonials={podcastTestimonials}
