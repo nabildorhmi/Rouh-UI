@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { services } from "../data/services";
 import { portfolio } from "../data/portfolio";
 import { plans } from "../data/plans";
@@ -17,6 +18,15 @@ import { CrossSellBanner } from "../components/shared/CrossSellBanner";
 
 export function Agency() {
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (scrollTo) {
+      document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location.state]);
+
   const agencyTestimonials = testimonials.filter(
     (t) => t.category === "agency" || t.category === "both"
   );
@@ -36,7 +46,7 @@ export function Agency() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20">
+      <section id="plans" className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20 scroll-mt-24">
         <div className="mt-6 grid gap-8 sm:grid-cols-3">
           {plans.map((plan) => (
             <PlanCard key={plan.id} plan={plan} onSelect={setSelectedPlan} />

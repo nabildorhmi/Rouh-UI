@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import logoMain from "../../assets/logo/logo-main.svg";
 
 const navLinks = [
@@ -11,6 +11,53 @@ const navLinks = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [bookMenuOpen, setBookMenuOpen] = useState(false);
+  const bookMenuRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isAgency = location.pathname === "/agency";
+  const isPodcast = location.pathname === "/podcast";
+
+  // Close the ambiguous-page dropdown on outside click.
+  useEffect(() => {
+    if (!bookMenuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (bookMenuRef.current && !bookMenuRef.current.contains(e.target as Node)) {
+        setBookMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [bookMenuOpen]);
+
+  const goToPlans = () => {
+    setBookMenuOpen(false);
+    setOpen(false);
+    if (isAgency) {
+      document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/agency", { state: { scrollTo: "plans" } });
+    }
+  };
+
+  const goToPackages = () => {
+    setBookMenuOpen(false);
+    setOpen(false);
+    if (isPodcast) {
+      document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/podcast", { state: { scrollTo: "packages" } });
+    }
+  };
+
+  const handleBookClick = () => {
+    if (isAgency) return goToPlans();
+    if (isPodcast) return goToPackages();
+    setBookMenuOpen((v) => !v);
+  };
+
+  const bookLabel = isAgency ? "Book a Call" : isPodcast ? "Book a Session" : "Book Now";
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `text-sm font-bold tracking-wide transition-colors ${
@@ -33,14 +80,41 @@ export function Header() {
             ))}
           </nav>
 
-          <NavLink
-            to="/podcast"
-            className="bg-gradient-brand text-black font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-full inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(217,162,83,0.35)]"
-            onClick={() => setOpen(false)}
-          >
-            <span className="hidden sm:inline">Book a Session →</span>
-            <span className="sm:hidden">Book Session</span>
-          </NavLink>
+          <div className="relative" ref={bookMenuRef}>
+            <button
+              type="button"
+              onClick={handleBookClick}
+              aria-haspopup={!isAgency && !isPodcast ? "menu" : undefined}
+              aria-expanded={!isAgency && !isPodcast ? bookMenuOpen : undefined}
+              className="bg-gradient-brand text-black font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-full inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(217,162,83,0.35)] cursor-pointer"
+            >
+              <span>{bookLabel} →</span>
+            </button>
+
+            {bookMenuOpen && (
+              <div
+                role="menu"
+                className="absolute right-0 top-[calc(100%+8px)] w-56 rounded-xl border border-black/10 bg-white shadow-xl overflow-hidden"
+              >
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={goToPlans}
+                  className="w-full text-left px-4 py-3 text-sm font-bold text-black hover:bg-black/[0.03] transition-colors cursor-pointer"
+                >
+                  Book Agency Call →
+                </button>
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={goToPackages}
+                  className="w-full text-left px-4 py-3 text-sm font-bold text-black hover:bg-black/[0.03] transition-colors border-t border-black/5 cursor-pointer"
+                >
+                  Book Podcast Session →
+                </button>
+              </div>
+            )}
+          </div>
 
           <button
             type="button"

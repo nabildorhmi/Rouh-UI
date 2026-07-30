@@ -22,12 +22,15 @@ export function Podcast() {
   const location = useLocation();
 
   useEffect(() => {
-    const autoOpenPackageId = (location.state as { autoOpenPackageId?: string } | null)?.autoOpenPackageId;
-    if (autoOpenPackageId) {
-      const pkg = packages.find((p) => p.id === autoOpenPackageId);
+    const state = location.state as { autoOpenPackageId?: string; scrollTo?: string } | null;
+    if (state?.autoOpenPackageId) {
+      const pkg = packages.find((p) => p.id === state.autoOpenPackageId);
       if (pkg) {
         setSelectedPackage(pkg);
       }
+    }
+    if (state?.scrollTo) {
+      document.getElementById(state.scrollTo)?.scrollIntoView({ behavior: "smooth" });
     }
   }, [location.state]);
 
@@ -50,7 +53,7 @@ export function Podcast() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20">
+      <section id="packages" className="mx-auto max-w-6xl px-4 sm:px-6 pb-16 sm:pb-20 scroll-mt-24">
         <div className="mt-6 grid gap-8 sm:grid-cols-3">
           {packages.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} onSelect={setSelectedPackage} />
