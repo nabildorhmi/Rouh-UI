@@ -6,6 +6,7 @@ import { testimonials } from "../data/testimonials";
 import { processSteps } from "../data/process";
 import { CALENDLY_LINKS } from "../data/config";
 import type { Plan } from "../types";
+import { GraphicAccent } from "../components/ui/GraphicAccent";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { ServicesGrid } from "../components/agency/ServicesGrid";
 import { PortfolioShowcase } from "../components/agency/PortfolioShowcase";
@@ -23,12 +24,19 @@ export function Agency() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
-        <SectionHeading
-          eyebrow="ROUH Agency"
-          title="A creative agency for brands that want to move with intent."
-          description="We work best with brands that already have some momentum and want a partner to sharpen it — clear positioning, consistent execution, and a team that treats deadlines like commitments, not suggestions."
+      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+        <GraphicAccent
+          variant={1}
+          className="absolute top-6 right-[4%] sm:right-[8%] w-40 h-40 sm:w-[200px] sm:h-[200px] opacity-45 pointer-events-none"
         />
+
+        <div className="relative z-10">
+          <SectionHeading
+            eyebrow="ROUH Agency"
+            title="A creative agency for brands that want to move with intent."
+            description="We work best with brands that already have some momentum and want a partner to sharpen it — clear positioning, consistent execution, and a team that treats deadlines like commitments, not suggestions."
+          />
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
@@ -50,10 +58,15 @@ export function Agency() {
         <ServicesGrid services={services} />
       </section>
 
-      <section className="bg-black/[0.02] border-y border-black/5">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
-          <h2 className="text-xl font-black text-black mb-6">Selected work</h2>
-          <PortfolioShowcase items={portfolio} />
+      <section className="relative overflow-hidden bg-charcoal text-white py-20">
+        <GraphicAccent
+          variant={3}
+          className="absolute -bottom-10 right-4 sm:right-[4%] w-60 h-60 sm:w-72 sm:h-72 opacity-40 pointer-events-none"
+        />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+          <span className="eyebrow text-gold">ROUH Agency</span>
+          <h2 className="mt-2 text-3xl font-black text-white mb-8">Selected work</h2>
+          <PortfolioShowcase items={portfolio} dark />
         </div>
       </section>
 
@@ -83,3 +96,4 @@ export function Agency() {
     </>
   );
 }
+
