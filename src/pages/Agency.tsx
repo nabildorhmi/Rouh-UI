@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { services } from "../data/services";
 import { portfolio } from "../data/portfolio";
 import { plans } from "../data/plans";
@@ -14,6 +13,7 @@ import { PlanCard } from "../components/agency/PlanCard";
 import { ReservationModal } from "../components/shared/ReservationModal";
 import { TestimonialsSection } from "../components/shared/TestimonialsSection";
 import { ProcessSection } from "../components/shared/ProcessSection";
+import { CrossSellBanner } from "../components/shared/CrossSellBanner";
 
 export function Agency() {
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
@@ -57,11 +57,7 @@ export function Agency() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6 border-t border-black/5 text-center">
-        <Link to="/podcast" className="inline-flex items-center gap-2 font-bold text-orange hover:gap-3 transition-all">
-          Also need a podcast studio? See how it works →
-        </Link>
-      </div>
+      <CrossSellBanner to="/podcast">Also need a podcast studio? See how it works →</CrossSellBanner>
 
       <TestimonialsSection
         testimonials={agencyTestimonials}
