@@ -66,4 +66,218 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  /* ===== Split hero ===== */
+  .split-hero {
+    display: flex;
+    height: calc(92vh - 80px);
+    min-height: 500px;
+    position: relative;
+  }
+
+  .split-half {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: flex-grow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .split-hero:hover .split-half {
+    flex-grow: 1;
+  }
+  .split-hero .split-half:hover {
+    flex-grow: 1.55;
+  }
+
+  .split-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .split-half img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.04);
+    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.4s ease;
+    filter: grayscale(0.15) contrast(1.05);
+  }
+  .split-half:hover img {
+    transform: scale(1.11);
+    filter: grayscale(0) contrast(1.08);
+  }
+
+  .split-overlay {
+    position: absolute;
+    inset: 0;
+  }
+  .split-overlay.agency {
+    background: linear-gradient(
+      0deg,
+      rgba(10, 10, 10, 0.82) 0%,
+      rgba(10, 10, 10, 0.25) 55%,
+      rgba(217, 162, 83, 0.28) 100%
+    );
+  }
+  .split-overlay.podcast {
+    background: linear-gradient(
+      0deg,
+      rgba(10, 10, 10, 0.88) 0%,
+      rgba(10, 10, 10, 0.35) 55%,
+      rgba(193, 98, 46, 0.3) 100%
+    );
+  }
+
+  .split-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    color: #fff;
+    width: 100%;
+  }
+  .podcast-content {
+    text-align: right;
+    margin-left: auto;
+  }
+  .podcast-content p {
+    margin-left: auto;
+  }
+  .podcast-cta {
+    justify-content: flex-end;
+  }
+
+  .split-content h2 {
+    font-size: clamp(1.9rem, 4vw, 3.25rem);
+    line-height: 1.02;
+    margin-top: 10px;
+    color: #fff;
+  }
+  .split-content p {
+    margin-top: 12px;
+    max-width: 380px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+  }
+  .split-half:hover .split-content p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .split-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    margin-top: 16px;
+    color: #fff;
+    transition: gap 0.15s ease;
+  }
+  .split-half:hover .split-cta {
+    gap: 13px;
+  }
+
+  .split-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 74px;
+    height: 74px;
+    color: var(--color-gold);
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .split-hero:hover .split-mark {
+    opacity: 0;
+  }
+
+  .split-badge {
+    position: absolute;
+    top: 28px;
+    z-index: 3;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  .split-half.agency .split-badge {
+    left: 40px;
+  }
+  .split-half.podcast .split-badge {
+    right: 40px;
+  }
+
+  @media (max-width: 720px) {
+    .split-hero {
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+    }
+    .split-half {
+      flex: none !important;
+      height: auto;
+      overflow: visible;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .split-media {
+      position: relative;
+      inset: auto;
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      overflow: hidden;
+    }
+    .split-content {
+      position: static;
+      padding: 24px 20px;
+      background: var(--color-charcoal);
+    }
+    .split-content p {
+      max-width: none;
+      font-size: 0.9rem;
+      opacity: 1;
+      transform: none;
+    }
+    .podcast-content,
+    .podcast-content p {
+      text-align: left;
+      margin-left: 0;
+    }
+    .podcast-cta {
+      justify-content: flex-start;
+    }
+    .split-mark {
+      display: none;
+    }
+    .split-badge {
+      top: 16px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+    }
+    .split-half.agency .split-badge {
+      left: 16px;
+    }
+    .split-half.podcast .split-badge {
+      right: 16px;
+    }
+  }
 }
