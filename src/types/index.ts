@@ -17,14 +17,6 @@ export interface Plan {
   highlighted?: boolean;
 }
 
-export interface Episode {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  duration: string;
-}
-
 export interface RentalPackage {
   id: string;
   name: string;
