@@ -40,6 +40,7 @@ export interface ReservationFormData {
   topic?: string;
   preferredDates?: string;
   message?: string;
+  company_website?: string;
 }
 
 export interface Testimonial {

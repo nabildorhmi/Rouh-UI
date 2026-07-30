@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 import type { ReservationFormData, ReservationMode } from "../../types";
 import { Button } from "../ui/Button";
 
@@ -8,6 +9,9 @@ interface ReservationFormProps {
   mode: ReservationMode;
   selectedTierName: string;
   onSubmit: (data: ReservationFormData) => void;
+  submitting?: boolean;
+  submitError?: string | null;
+  setFieldErrors?: (handler: (errors: Record<string, string[]>) => void) => void;
 }
 
 const inputClass =
@@ -15,12 +19,34 @@ const inputClass =
 const labelClass = "text-sm font-bold text-black mb-1.5 block";
 const errorClass = "text-xs text-orange mt-1";
 
-export function ReservationForm({ mode, selectedTierName, onSubmit }: ReservationFormProps) {
+export function ReservationForm({
+  mode,
+  selectedTierName,
+  onSubmit,
+  submitting = false,
+  submitError = null,
+  setFieldErrors,
+}: ReservationFormProps) {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<ReservationFormData>();
+
+  if (setFieldErrors) {
+    setFieldErrors((apiErrors: Record<string, string[]>) => {
+      Object.entries(apiErrors).forEach(([field, messages]) => {
+        if (messages && messages.length > 0) {
+          const targetField = field === "preferred_dates" ? "preferredDates" : field;
+          setError(targetField as keyof ReservationFormData, {
+            type: "server",
+            message: messages[0],
+          });
+        }
+      });
+    });
+  }
 
   const tierFieldLabel = mode === "agency" ? "Selected plan" : "Selected package";
 
@@ -31,6 +57,15 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
       className="flex flex-col gap-4"
       aria-label={mode === "agency" ? "Agency reservation form" : "Podcast studio reservation form"}
     >
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("company_website")}
+        />
+      </div>
+
       <div>
         <span className={labelClass}>{tierFieldLabel}</span>
         <div className="rounded-lg bg-orange/5 border border-orange/20 px-4 py-2.5 text-sm font-bold text-orange">
@@ -87,12 +122,22 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
                 Phone
               </label>
               <input id="phone" type="tel" className={inputClass} {...register("phone")} />
+              {errors.phone && (
+                <p id="phone-error" className={errorClass}>
+                  {errors.phone.message}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="company" className={labelClass}>
                 Company
               </label>
               <input id="company" type="text" className={inputClass} {...register("company")} />
+              {errors.company && (
+                <p id="company-error" className={errorClass}>
+                  {errors.company.message}
+                </p>
+              )}
             </div>
           </div>
           <div>
@@ -100,6 +145,11 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
               Tell us about your project
             </label>
             <textarea id="message" rows={4} className={inputClass} {...register("message")} />
+            {errors.message && (
+              <p id="message-error" className={errorClass}>
+                {errors.message.message}
+              </p>
+            )}
           </div>
         </>
       ) : (
@@ -134,12 +184,30 @@ export function ReservationForm({ mode, selectedTierName, onSubmit }: Reservatio
               className={inputClass}
               {...register("preferredDates")}
             />
+            {errors.preferredDates && (
+              <p id="preferredDates-error" className={errorClass}>
+                {errors.preferredDates.message}
+              </p>
+            )}
           </div>
         </>
       )}
 
-      <Button type="submit" className="mt-2 w-full">
-        Submit
+      {submitError && (
+        <div className="rounded-lg border border-orange/20 bg-orange/5 p-4 text-xs text-orange">
+          {submitError}
+        </div>
+      )}
+
+      <Button type="submit" disabled={submitting} className="mt-2 w-full">
+        {submitting ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+            Sending...
+          </>
+        ) : (
+          "Submit"
+        )}
       </Button>
     </form>
   );
