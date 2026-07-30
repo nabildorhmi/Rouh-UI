@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col gap-3">
           <img src={logoWhite} alt="ROUH" className="h-9 w-auto" />
           <p className="text-sm text-white/60 max-w-xs">
-            One brand, two activities: a creative agency and an original podcast.
+            One brand, two activities: a creative agency and a podcast studio for rent.
           </p>
         </div>
 
