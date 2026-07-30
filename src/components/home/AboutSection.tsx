@@ -10,7 +10,7 @@ export function AboutSection() {
         eyebrow="About ROUH"
         title="Rouh means soul — that's the point."
         align="center"
-        description="Placeholder brand story: ROUH exists at the intersection of strategy and storytelling. The agency builds brands with intent; the podcast has honest conversations about how that work actually happens. Same voice, two formats."
+        description="ROUH exists at the intersection of strategy and craft. The agency builds brands with intent; the studio gives other creators the room and gear to do the same for their own show. Same point of view, two ways to work with us."
       />
     </section>
   );
