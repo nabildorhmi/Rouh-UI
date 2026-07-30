@@ -65,7 +65,7 @@ export function Podcast() {
             />
             <div className="mt-8 rounded-2xl border border-black/10 bg-white p-8">
               <p className="text-sm text-black/80">
-                <strong className="font-bold text-black">Address:</strong> 123 Studio Row, Suite 4B — [City], [State] (exact address confirmed on booking)
+                <strong className="font-bold text-black">Address:</strong> Provided after booking — a Rouh crew member will send exact directions and parking info by email.
               </p>
               <p className="mt-4 text-sm text-black/80">
                 <strong className="font-bold text-black">Parking:</strong> Free street parking on Studio Row after 6pm; a paid lot is directly across the street for daytime sessions.
