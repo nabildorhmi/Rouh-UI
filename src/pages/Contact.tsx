@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { Button } from "../components/ui/Button";
+import { Button, LinkButton } from "../components/ui/Button";
+import { CALENDLY_LINKS } from "../data/config";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,6 +33,32 @@ export function Contact() {
 
   return (
     <section className="mx-auto max-w-2xl px-4 sm:px-6 py-16 sm:py-24">
+      <div className="rounded-2xl border border-black/10 bg-black/[0.02] p-6 sm:p-8 mb-12">
+        <p className="font-bold text-black">Already know what you need?</p>
+        <p className="mt-1 text-sm text-black/60">
+          Skip the form and grab a time straight from our calendar.
+        </p>
+        <div className="mt-4 flex flex-col sm:flex-row gap-3">
+          <LinkButton
+            href={CALENDLY_LINKS.agency}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1"
+          >
+            Book Agency call
+          </LinkButton>
+          <LinkButton
+            href={CALENDLY_LINKS.podcast}
+            target="_blank"
+            rel="noreferrer"
+            variant="secondary"
+            className="flex-1"
+          >
+            Book Podcast session
+          </LinkButton>
+        </div>
+      </div>
+
       <SectionHeading
         eyebrow="Get in touch"
         title="Have a question that doesn't fit a plan or a slot?"
