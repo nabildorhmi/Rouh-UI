@@ -24,30 +24,41 @@ export function Header() {
           <img src={logoMain} alt="ROUH" className="h-10 w-auto" />
         </NavLink>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-          {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} end={link.to === "/"} className={linkClass}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+            {navLinks.map((link) => (
+              <NavLink key={link.to} to={link.to} end={link.to === "/"} className={linkClass}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="md:hidden flex flex-col justify-center gap-1.5 h-10 w-10"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span
-            className={`block h-0.5 w-6 bg-black transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span className={`block h-0.5 w-6 bg-black transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`block h-0.5 w-6 bg-black transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
-          />
-        </button>
+          <NavLink
+            to="/podcast"
+            className="bg-gradient-brand text-black font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-full inline-flex items-center gap-1.5 transition-all hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(217,162,83,0.35)]"
+            onClick={() => setOpen(false)}
+          >
+            <span className="hidden sm:inline">Book a Session →</span>
+            <span className="sm:hidden">Book Session</span>
+          </NavLink>
+
+          <button
+            type="button"
+            className="md:hidden flex flex-col justify-center gap-1.5 h-10 w-10"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span
+              className={`block h-0.5 w-6 bg-black transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
+            />
+            <span className={`block h-0.5 w-6 bg-black transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`block h-0.5 w-6 bg-black transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </div>
 
       {open && (
