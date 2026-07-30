@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Loader2 } from "lucide-react";
 import type { ReservationFormData, ReservationMode } from "../../types";
@@ -34,7 +35,8 @@ export function ReservationForm({
     formState: { errors },
   } = useForm<ReservationFormData>();
 
-  if (setFieldErrors) {
+  useEffect(() => {
+    if (!setFieldErrors) return;
     setFieldErrors((apiErrors: Record<string, string[]>) => {
       Object.entries(apiErrors).forEach(([field, messages]) => {
         if (messages && messages.length > 0) {
@@ -46,7 +48,7 @@ export function ReservationForm({
         }
       });
     });
-  }
+  }, [setFieldErrors, setError]);
 
   const tierFieldLabel = mode === "agency" ? "Selected plan" : "Selected package";
 

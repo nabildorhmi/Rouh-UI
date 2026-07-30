@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { ReservationFormData, ReservationMode } from "../../types";
 import { Modal } from "../ui/Modal";
 import { ReservationForm } from "./ReservationForm";
@@ -24,6 +24,15 @@ export function ReservationModal({
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const setFieldErrorsRef = useRef<((errors: Record<string, string[]>) => void) | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current !== null) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = async (data: ReservationFormData) => {
     setSubmitting(true);
@@ -63,7 +72,7 @@ export function ReservationModal({
     setSubmitError(null);
     // Reset after the close transition would run in a fuller implementation;
     // kept simple here since there is no exit animation yet.
-    setTimeout(() => setSubmitted(null), 300);
+    closeTimeoutRef.current = setTimeout(() => setSubmitted(null), 300);
   };
 
   return (
