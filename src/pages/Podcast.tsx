@@ -7,6 +7,7 @@ import { testimonials } from "../data/testimonials";
 import { processSteps } from "../data/process";
 import { CALENDLY_LINKS } from "../data/config";
 import type { RentalPackage } from "../types";
+import { GraphicAccent } from "../components/ui/GraphicAccent";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { PackageCard } from "../components/podcast/PackageCard";
 import { StudioGallery } from "../components/podcast/StudioGallery";
@@ -36,12 +37,18 @@ export function Podcast() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
-        <SectionHeading
-          eyebrow="ROUH Studio"
-          title="Rent our studio and gear to record your own podcast."
-          description="Book the room, the mics, and as much crew support as you need — dry-hire it and run your own session, or let a Rouh crew member handle the gear while you focus on the conversation."
+      <section className="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+        <GraphicAccent
+          variant={4}
+          className="absolute top-6 right-[4%] sm:right-[8%] w-44 h-44 sm:w-[210px] sm:h-[210px] opacity-45 pointer-events-none"
         />
+        <div className="relative z-10">
+          <SectionHeading
+            eyebrow="ROUH Studio"
+            title="Rent our studio and gear to record your own podcast."
+            description="Book the room, the mics, and as much crew support as you need — dry-hire it and run your own session, or let a Rouh crew member handle the gear while you focus on the conversation."
+          />
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
